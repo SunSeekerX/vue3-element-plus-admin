@@ -3,11 +3,13 @@
  * @author: SunSeekerX
  * @Date: 2021-01-14 22:59:19
  * @LastEditors: SunSeekerX
- * @LastEditTime: 2021-01-17 21:17:54
+ * @LastEditTime: 2021-01-18 11:37:34
 -->
 
 <template>
-  <div class="sidebar-container">
+  <div class="sidebar-container" :class="{ 'has-logo': showLogo }">
+    <Logo v-if="showLogo" :collapse="isCollapse" />
+
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu
         class="el-menu-vertical-demo"
@@ -92,13 +94,39 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
+import Logo from './components/Logo'
+
 export default {
   name: 'Sidebar',
-  data() {
-    return {
-      isCollapse: false,
-    }
+  components: { Logo },
+  computed: {
+    ...mapGetters(['sidebar']),
+    activeMenu() {
+      const route = this.$route
+      const { meta, path } = route
+      // if set path, the sidebar will highlight the path you set
+      if (meta.activeMenu) {
+        return meta.activeMenu
+      }
+      return path
+    },
+    showLogo() {
+      return this.$store.state.settings.sidebarLogo
+    },
+    // variables() {
+    //   return variables
+    // },
+    isCollapse() {
+      return !this.sidebar.opened
+    },
   },
+  // data() {
+  //   return {
+  //     isCollapse: false,
+  //   }
+  // },
   methods: {
     handleOpen(key, keyPath) {
       console.log(key, keyPath)
@@ -140,12 +168,6 @@ export default {
 
     .el-scrollbar {
       height: 100%;
-    }
-
-    &.has-logo {
-      .el-scrollbar {
-        height: calc(100% - 50px);
-      }
     }
 
     .is-horizontal {
@@ -193,6 +215,12 @@ export default {
       &:hover {
         background-color: #001528 !important;
       }
+    }
+  }
+
+  .has-logo {
+    .el-scrollbar {
+      height: calc(100% - 50px);
     }
   }
 

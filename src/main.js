@@ -3,7 +3,7 @@
  * @author: SunSeekerX
  * @Date: 2021-01-17 18:27:53
  * @LastEditors: SunSeekerX
- * @LastEditTime: 2021-01-17 21:28:30
+ * @LastEditTime: 2021-01-18 09:56:05
  */
 
 /**
@@ -20,5 +20,7 @@ import 'element-plus/lib/theme-chalk/index.css'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+
+console.log(process.env)
 
 createApp(App).use(ElementPlus).use(store).use(router).mount('#app')

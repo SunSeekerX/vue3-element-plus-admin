@@ -3,7 +3,7 @@
  * @author: SunSeekerX
  * @Date: 2021-01-17 18:51:56
  * @LastEditors: SunSeekerX
- * @LastEditTime: 2021-01-17 18:57:55
+ * @LastEditTime: 2021-01-18 11:12:09
  */
 
 import { storage } from '@/utils/index'
@@ -43,5 +43,18 @@ export default {
       storage.setStorageSync('size', size)
     },
   },
-  actions: {},
+  actions: {
+    toggleSideBar({ commit }) {
+      commit('TOGGLE_SIDEBAR')
+    },
+    closeSideBar({ commit }, { withoutAnimation }) {
+      commit('CLOSE_SIDEBAR', withoutAnimation)
+    },
+    toggleDevice({ commit }, device) {
+      commit('TOGGLE_DEVICE', device)
+    },
+    setSize({ commit }, size) {
+      commit('SET_SIZE', size)
+    },
+  },
 }

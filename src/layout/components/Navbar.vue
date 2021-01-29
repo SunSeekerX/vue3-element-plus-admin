@@ -3,7 +3,7 @@
  * @author: SunSeekerX
  * @Date: 2021-01-14 22:59:13
  * @LastEditors: SunSeekerX
- * @LastEditTime: 2021-01-17 21:42:52
+ * @LastEditTime: 2021-01-29 16:26:15
 -->
 
 <template>
@@ -42,6 +42,7 @@ export default {
 .navbar,
 .navbar-place {
   height: 50px;
+  transition: width 0.28s;
 }
 .navbar {
   position: fixed;
@@ -65,8 +66,5 @@ export default {
       background: rgba(0, 0, 0, 0.025);
     }
   }
-}
-.navbar-place {
-  background-color: salmon;
 }
 </style>

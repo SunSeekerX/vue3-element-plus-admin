@@ -3,7 +3,7 @@
  * @author: SunSeekerX
  * @Date: 2021-01-17 18:27:53
  * @LastEditors: SunSeekerX
- * @LastEditTime: 2021-01-18 09:56:05
+ * @LastEditTime: 2021-01-29 15:42:52
  */
 
 /**
@@ -23,4 +23,8 @@ import store from './store'
 
 console.log(process.env)
 
-createApp(App).use(ElementPlus).use(store).use(router).mount('#app')
+createApp(App)
+  .use(ElementPlus)
+  .use(store)
+  .use(router)
+  .mount('#app')

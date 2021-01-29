@@ -3,7 +3,7 @@
  * @author: SunSeekerX
  * @Date: 2021-01-14 22:22:03
  * @LastEditors: SunSeekerX
- * @LastEditTime: 2021-01-18 11:41:29
+ * @LastEditTime: 2021-01-29 16:25:30
 -->
 
 <template>
@@ -53,6 +53,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '~@/styles/mixin.scss';
+
 .app-wrapper {
   @include clearfix;
 
@@ -80,6 +81,12 @@ export default {
 
   .main-container {
     margin-left: 54px;
+
+    ::v-deep {
+      .navbar {
+        width: calc(100% - 54px);
+      }
+    }
   }
 
   .submenu-title-noDropdown {
@@ -142,15 +149,6 @@ export default {
   height: 100%;
   background: #000;
   opacity: 0.3;
-}
-
-.fixed-header {
-  position: fixed;
-  top: 0;
-  right: 0;
-  z-index: 9;
-  width: calc(100% - 210px);
-  transition: width 0.28s;
 }
 
 .hideSidebar .fixed-header {

@@ -3,17 +3,10 @@
  * @author: SunSeekerX
  * @Date: 2021-01-18 10:03:01
  * @LastEditors: SunSeekerX
- * @LastEditTime: 2021-01-18 10:09:18
+ * @LastEditTime: 2021-01-31 15:09:51
  */
 
-import getEnv from '@/config'
-
-const [showSettings, tagsView, fixedHeader, sidebarLogo] = [
-  getEnv('showSettings'),
-  getEnv('tagsView'),
-  getEnv('fixedHeader'),
-  getEnv('sidebarLogo'),
-]
+import { showSettings, tagsView, fixedHeader, sidebarLogo } from '@/config/default'
 
 export default {
   namespaced: true,

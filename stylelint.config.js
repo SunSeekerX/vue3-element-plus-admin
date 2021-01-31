@@ -3,7 +3,7 @@
  * @author: SunSeekerX
  * @Date: 2020-11-13 13:33:20
  * @LastEditors: SunSeekerX
- * @LastEditTime: 2021-01-14 23:37:34
+ * @LastEditTime: 2021-01-31 16:33:43
  */
 
 module.exports = {
@@ -14,7 +14,7 @@ module.exports = {
     'selector-pseudo-class-no-unknown': [
       true,
       {
-        ignorePseudoClasses: ['global', 'export'],
+        ignorePseudoClasses: ['global', 'export', 'deep'],
       },
     ],
     'at-rule-no-unknown': [

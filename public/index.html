@@ -1,17 +1,94 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="zh-Hans">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title><%= htmlWebpackPlugin.options.title %></title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
+    <title>
+      <%= htmlWebpackPlugin.options.title %>
+    </title>
+    <style>
+      html,
+      body {
+        padding: 0;
+        margin: 0;
+        line-height: normal;
+      }
+
+      @keyframes wave {
+        0% {
+          transform: rotate(0);
+        }
+
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .loading-wrapper {
+        display: flex;
+        width: 100%;
+        height: 100vh;
+        background-color: #555;
+        flex-flow: column wrap;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .water {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        overflow: hidden;
+        background-color: #87ceeb;
+        border-radius: 50%;
+        box-shadow: inset 0 0 30px 0 rgba(0, 0, 0, 0.5), 0 4px 10px 0 rgba(0, 0, 0, 0.5);
+      }
+
+      .water::before,
+      .water::after {
+        position: absolute;
+        top: -100px;
+        width: 200px;
+        height: 200px;
+        background-color: #fff;
+        content: '';
+      }
+
+      .water::before {
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 45%;
+        animation: wave 5s linear infinite;
+      }
+
+      .water::after {
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 35%;
+        animation: wave 5s linear infinite;
+      }
+
+      .tips {
+        margin: 1em auto;
+        font-size: 18px;
+        color: #fff;
+      }
+    </style>
   </head>
+
   <body>
     <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+      <strong
+        >We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without
+        JavaScript enabled. Please enable it to continue.</strong
+      >
     </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
+
+    <div id="app">
+      <div class="loading-wrapper">
+        <div class="water"></div>
+        <p class="tips">正在加载系统资源，请稍后...</p>
+      </div>
+    </div>
   </body>
 </html>

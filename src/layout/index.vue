@@ -3,7 +3,7 @@
  * @author: SunSeekerX
  * @Date: 2021-01-14 22:22:03
  * @LastEditors: SunSeekerX
- * @LastEditTime: 2021-01-29 16:25:30
+ * @LastEditTime: 2021-01-31 15:15:33
 -->
 
 <template>
@@ -82,10 +82,8 @@ export default {
   .main-container {
     margin-left: 54px;
 
-    ::v-deep {
-      .navbar {
-        width: calc(100% - 54px);
-      }
+    :deep(.navbar) {
+      width: calc(100% - 54px);
     }
   }
 
